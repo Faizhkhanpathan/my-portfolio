@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faiz H Pathan - Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+    nav .logo span {
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav .links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav .links a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    nav .links a:hover {
+      color: #00d9ff;
+    }
+    .logout-btn {
+      background: #00d9ff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .logout-btn:hover {
+      background: #009ec9;
+    }
+    section.hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10%;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+    }
+    .hero-content h1 span {
+      color: #00d9ff;
+    }
+    .typing {
+      color: #ffea00;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .social-links a {
+      margin-right: 15px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-links a:hover {
+      color: #00d9ff;
+      transform: scale(1.2);
+    }
+    .btns button {
+      background: #00d9ff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .btns button:hover {
+      background: #009ec9;
+      transform: translateY(-2px);
+    }
+    img.hero-img {
+      width: 350px;
+      border-radius: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo" data-aos="zoom-in">
+      <span>Faiz H Pathan</span>
+    </div>
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <!-- ✅ Logout Button -->
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-right">
+      <h1>Hey, I'm <span>Faiz</span></h1>
+      <p class="typing">MERN Developer | Data Science Learner | AI Enthusiast</p>
+      <p>👨‍💻 Dedicated <strong>MERN Developer</strong> & <strong>Data Science Explorer</strong>. I love creating <strong>innovative web solutions</strong> and learning new technologies 🚀.</p>
+      <div class="social-links" data-aos="zoom-in">
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+      <div class="btns">
+        <button onclick="window.location.href='cv.pdf'">📄 Download CV</button>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📩 Contact Me</button>
+      </div>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+      <img src="main.png" class="hero-img" alt="Faiz Portfolio">
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+  </script>
+
+  <!-- ✅ Firebase Script (placed at the end so elements exist) -->
+      <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyA6OaDz_zZec0RitJJya28T5PNobzZWy_g",
+  authDomain: "myprotfolio-a70fe.firebaseapp.com",
+  projectId: "myprotfolio-a70fe",
+  storageBucket: "myprotfolio-a70fe.firebasestorage.app",
+  messagingSenderId: "578296764784",
+  appId: "1:578296764784:web:d20ab5e59abe4986e8d7b5",
+  measurementId: "G-FTFTPXXWF1"
+};
+
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // ✅ Redirect if NOT logged in
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    // ✅ Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      signOut(auth).then(() => window.location.href = "login.html");
+    });
+  </script>
+
+</body>
+</html>
