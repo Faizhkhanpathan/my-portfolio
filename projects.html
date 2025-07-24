@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Faiz H Pathan</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav .logo {
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #00d9ff;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background-color: #00d9ff;
+      color: #121212;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #00d9ff;
+      user-select: none;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: rgba(255 255 255 / 0.05);
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 16px 50px #00d9ffaa;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+    }
+
+    .project-thumbnail iframe,
+    .project-thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px 22px 26px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 0 0 14px;
+      color: #00d9ff;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      margin-bottom: 14px;
+      color: #cbd5e1cc;
+      line-height: 1.5;
+    }
+
+    .tech-list {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #8fbbffcc;
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 14px;
+    }
+
+    .project-links a {
+      flex: 1;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 10px 0;
+      font-weight: 700;
+      color: #00d9ff;
+      border: 2px solid #00d9ff;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .project-links a:hover,
+    .project-links a:focus {
+      background-color: #00d9ff;
+      color: #121212;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 7%;
+      font-size: 0.9rem;
+      color: #a0aabb;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .project-links a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Faiz H Pathan</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="logout.html" style="background:#00d9ff; color:#121212; border-radius: 12px; padding: 8px 18px;">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+    <h1>My Projects</h1>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card" aria-labelledby="project1-title">
+        <div class="project-thumbnail">
+          <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Project 1 Video Demo" frameborder="0" allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <div class="project-content">
+          <h2 class="project-title" id="project1-title">Task Manager App</h2>
+          <p class="project-description">A MERN stack web application to organize, assign, and track tasks efficiently with user authentication and real-time updates.</p>
+          <div class="tech-list">React | Node.js | Express | MongoDB | Firebase Auth</div>
+          <div class="project-links">
+            <a href="https://your-live-demo-url.com/task-manager" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/faizpathan/task-manager" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card" aria-labelledby="project2-title">
+        <div class="project-thumbnail">
+          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Project 2 Video Demo" frameborder="0" allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <div class="project-content">
+          <h2 class="project-title" id="project2-title">Portfolio Website</h2>
+          <p class="project-description">A modern portfolio website built with React and styled-components to showcase projects, skills, and contact details with smooth animations.</p>
+          <div class="tech-list">React | CSS3 | AOS (Animate on Scroll)</div>
+          <div class="project-links">
+            <a href="https://your-live-demo-url.com/portfolio" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/faizpathan/portfolio-website" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card" aria-labelledby="project3-title">
+        <div class="project-thumbnail">
+          <iframe src="https://www.youtube.com/embed/QtBDL8EiNZo" title="Project 3 Video Demo" frameborder="0" allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <div class="project-content">
+          <h2 class="project-title" id="project3-title">E-Commerce Store</h2>
+          <p class="project-description">A full e-commerce platform built with the MERN stack featuring product listing, cart management, payment integration, and admin dashboard.</p>
+          <div class="tech-list">React | Node.js | Express | MongoDB | Stripe API</div>
+          <div class="project-links">
+            <a href="https://your-live-demo-url.com/ecommerce" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/faizpathan/ecommerce-store" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Faiz H Pathan | MERN Developer & Data Science Learner
+  </footer>
+
+</body>
+
+</html>

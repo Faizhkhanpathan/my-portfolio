@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Faiz H Pathan</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav .logo {
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #00d9ff;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background-color: #00d9ff;
+      color: #121212;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #00d9ff;
+      user-select: none;
+      text-align: center;
+    }
+
+    .about-wrapper {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-text {
+      flex: 1 1 350px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #d9dce1;
+      user-select: text;
+    }
+
+    .about-text p {
+      margin-bottom: 1.15rem;
+    }
+
+    .about-image {
+      flex: 1 1 300px;
+      max-width: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 217, 255, 0.4);
+      user-select: none;
+    }
+
+    .about-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 7%;
+      font-size: 0.9rem;
+      color: #a0aabb;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .about-wrapper {
+        flex-direction: column;
+      }
+
+      .about-text,
+      .about-image {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Faiz H Pathan</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="logout.html" style="background:#00d9ff; color:#121212; border-radius: 12px; padding: 8px 18px;">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main container -->
+  <div class="container">
+    <h1>About Me</h1>
+
+    <div class="about-wrapper" role="main">
+      <div class="about-text">
+        <p>Hello! I’m <strong>Faiz H Pathan</strong>, a passionate MERN Developer and Data Science learner dedicated to building innovative web applications and exploring emerging technologies in AI and data.</p>
+
+        <p>With hands-on experience in full-stack development, I focus on creating efficient, scalable, and user-friendly solutions. I constantly strive to learn and apply new tools, frameworks, and methodologies to improve my craft.</p>
+
+        <p>In addition to coding, I have a keen interest in video editing and design, combining creativity with technology to produce engaging multimedia content.</p>
+
+        <p>Feel free to explore my projects, skills, and get in touch with me below!</p>
+      </div>
+
+      <div class="about-image" aria-label="Portrait photo of Faiz H Pathan">
+        <img src="main.png" alt="Photo of Faiz H Pathan" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Faiz H Pathan | MERN Developer & Data Science Learner
+  </footer>
+
+</body>
+
+</html>
