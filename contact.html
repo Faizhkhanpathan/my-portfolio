@@ -163,7 +163,7 @@
       margin-top: 48px;
       font-size: 0.95rem;
       text-align: center;
-      color: #a0b8d9cc;
+      color: #a0d9ffcc;
       line-height: 1.6;
       user-select: none;
     }
@@ -180,6 +180,44 @@
       color: #007ac1;
       outline: none;
       text-decoration: underline;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .contact-container {
+        margin: 20px 12px 50px;
+        padding: 30px 24px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 28px;
+      }
+
+      input,
+      textarea {
+        font-size: 1rem;
+        padding: 14px 14px;
+        min-height: 48px;
+      }
+
+      textarea {
+        min-height: 90px;
+      }
+
+      button[type="submit"] {
+        font-size: 1.1rem;
+        padding: 14px 0;
+      }
+
+      .response-msg {
+        font-size: 1rem;
+      }
+
+      .contact-details {
+        font-size: 0.9rem;
+        margin-top: 36px;
+      }
     }
   </style>
 </head>
@@ -212,7 +250,9 @@
     <div class="contact-details" aria-label="Other contact details">
       <p>Email: <a href="mailto:pfaizkhan95@gmail.com">pfaizkhan95@gmail.com</a></p>
       <p>Phone: <a href="tel:+919860575515">+91 98605 75515</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/faiz-khan-pathan-0b47602a0/" target="_blank" rel="noopener">linkedin.com/in/Faiz_h_pathan</a></p>
+      <p>LinkedIn:
+        <a href="https://www.linkedin.com/in/faiz-khan-pathan-0b47602a0/" target="_blank" rel="noopener">linkedin.com/in/Faiz_h_pathan</a>
+      </p>
       <p>GitHub: <a href="https://github.com/Faizhkhanpathan" target="_blank" rel="noopener">github.com/faizpathan</a></p>
     </div>
   </section>
