@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Faiz H Pathan</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      z-index: 1100;
+      font-weight: 600;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    nav .logo {
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: #00d9ff;
+      user-select: none;
+    }
+
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    nav .nav-links a.active,
+    nav .nav-links a:hover {
+      background-color: #00d9ff;
+      color: #121212;
+    }
+
+    nav .logout-btn {
+      background: #00d9ff;
+      color: #121212 !important;
+      border-radius: 12px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+
+    nav .logout-btn:hover {
+      background: #009ec9;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+
+      nav .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        height: calc(100vh - 60px);
+        width: 220px;
+        background-color: rgba(12, 24, 36, 0.95);
+        flex-direction: column;
+        padding: 30px 15px;
+        gap: 25px;
+        transform: translateX(100%);
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.6);
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+        z-index: 1200;
+      }
+
+      nav .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav .logout-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 8px;
+      }
+    }
+
+    /* Hamburger animation when active */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Container and rest */
+    .container {
+      max-width: 1100px;
+      margin: 100px auto 80px;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+      color: #00d9ff;
+      user-select: none;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: rgba(255 255 255 / 0.05);
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 16px 50px #00d9ffaa;
+    }
+
+    .project-thumbnail {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .project-thumbnail iframe,
+    .project-thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    .project-content {
+      padding: 20px 22px 26px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 0 0 14px;
+      color: #00d9ff;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      margin-bottom: 14px;
+      color: #cbd5e1cc;
+      line-height: 1.5;
+    }
+
+    .tech-list {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #8fbbffcc;
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      flex: 1 1 140px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 10px 0;
+      font-weight: 700;
+      color: #00d9ff;
+      border: 2px solid #00d9ff;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .project-links a:hover,
+    .project-links a:focus {
+      background-color: #00d9ff;
+      color: #121212;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 7%;
+      font-size: 0.9rem;
+      color: #a0aabb;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-links a {
+        flex: 1 1 100%;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 24px;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+      }
+
+      .project-description {
+        font-size: 0.95rem;
+      }
+
+      .tech-list {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Faiz H Pathan</div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="logout.html" class="logout-btn">Logout</a>
+    </div>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+<div class="container">
+    <h1>My Projects</h1>
+  </div>
+<div class="projects-grid">
+
+      <!-- Project 1 -->
+     <!-- Startup Project -->
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+    <video controls width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753380410/hotel_management_project_1_nt858a.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">Hotel management</h2>
+    <p class="project-description">
+      A complete Hotel Management System built using Java and MySQL. It streamlines room booking, customer check-in/out, staff management, and billing through an easy-to-use interface.
+    </p>
+    <div class="tech-list"></div>
+    <div class="project-links">
+      <a href="hotel management project 1.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+    <video controls width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753384167/web_d_peojec_myportfolio_2_oo4e70.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">My portfolio Passionate web developer Extra</h2>
+    <p class="project-description">
+     Passionate web developer with hands-on experience in building responsive, user-friendly websites and full-stack applications using HTML, CSS, JavaScript, React, Node.js, and modern frameworks.
+</p>
+    </p>
+    <div class="tech-list">Database connection</div>
+    <div class="project-links">
+      <a href="web d peojec myportfolio_2.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+
+      </div>
+  <!-- Main container -->
+  
+<div class="projects-grid">
+
+      <!-- Project 1 -->
+     <!-- Startup Project -->
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+    <video controls width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753387097/cliphub-indiaplatform1_nlfdih.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">ClipHub India Platform (Startup Project Build)</h2>
+    <p class="project-description">
+      An innovative Indian startup platform: Connects creators with brands for video collaborations, campaign management, payments, and performance analytics—all in one streamlined dashboard.
+    </p>
+    <div class="tech-list">Tailwind css | Next js | Java script tsx | python backend | Firebase | Cloudinary | Mongodb </div>
+    <div class="project-links">
+      <a href="Cliphub_indiaplatform.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+<video controls width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753380410/hotel_management_project_1_nt858a.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">Connection of database</h2>
+    <p class="project-description">
+     This project uses a Java-based backend that establishes a connection to a MySQL database through JDBC (Java Database Connectivity). It handles user authentication, form submissions, and dynamic data storage. The database schema is designed to manage user profiles, activity logs, and project-specific records efficiently.
+
+    </p>
+    <div class="tech-list">React | Node js | Firebase | Cloudinary | Mongodb </div>
+    <div class="project-links">
+      <a href="ClipHUb.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+
+      </div>
+      <div class="projects-grid">
+
+      <!-- Project 1 -->
+     <!-- Startup Project -->
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+   <video controls muted width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753384391/Screen_Recording_2025-07-07_010736_lop88q.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">Firebase Deployement </h2>
+    <p class="project-description">
+     A modern full-stack web application deployed with Firebase, offering secure authentication, real-time database integration, and scalable cloud hosting. Designed to deliver a seamless experience for creators and brands through fast and reliable deployment.
+    </p>
+    <div class="tech-list"></div>
+    <div class="project-links">
+      <a href="Screen Recording 2025-07-07 010736.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+<article class="project-card" aria-labelledby="startup-title">
+  <div class="project-thumbnail">
+    <!-- You can use a video demo, image, or thumbnail as needed -->
+    <video controls width="100%" poster="your-thumbnail.jpg">
+  <source src="https://res.cloudinary.com/deglwuyvj/video/upload/v1753384271/CONNECT_DATABASE_1_zhefas.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    <!-- Or for image: 
+    <img src="your-startup-thumbnail.jpg" alt="Startup Thumbnail" loading="lazy" />
+    -->
+  </div>
+  <div class="project-content">
+    <h2 class="project-title" id="startup-title">Connection of database</h2>
+    <p class="project-description">
+     This project uses a Java-based backend that establishes a connection to a MySQL database through JDBC (Java Database Connectivity). It handles user authentication, form submissions, and dynamic data storage. The database schema is designed to manage user profiles, activity logs, and project-specific records efficiently.
+
+    </p>
+    <div class="tech-list">Database connection</div>
+    <div class="project-links">
+      <a href="CONNECT DATABASE 1.mp4" target="_blank" rel="noopener">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      <a href="https://github.com/faizpathan/cliphub-india" target="_blank" rel="noopener">GitHub <i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+</article>
+
+      </div>
+  <footer>
+    © 2025 Faiz H Pathan | MERN Developer & Data Science Learner
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Keyboard accessibility for hamburger
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    // Close menu when clicking any link (on mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Faiz H Pathan</title>
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 74%, #2c5364 100%);
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      user-select: none;
+    }
+
+    /* Container */
+    .contact-container {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 40px 36px;
+      box-shadow: 0 14px 40px rgba(0, 217, 255, 0.25);
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #00d9ff;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 36px;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Floating label wrapper */
+    .input-group {
+      position: relative;
+      width: 100%;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: 2.5px solid #555;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e0e6f0;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      resize: vertical;
+      min-height: 50px;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: transparent;
+    }
+
+    label {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      font-weight: 500;
+      color: #8ea3b7;
+      pointer-events: none;
+      user-select: none;
+      background-color: rgba(15, 32, 39, 0.9);
+      padding: 0 6px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    /* Activated floating labels */
+    input:focus,
+    input:not(:placeholder-shown),
+    textarea:focus,
+    textarea:not(:placeholder-shown) {
+      border-color: #00d9ff;
+      background-color: rgba(0, 217, 255, 0.08);
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label,
+    textarea:focus + label,
+    textarea:not(:placeholder-shown) + label {
+      top: -12px;
+      left: 16px;
+      font-size: 0.85rem;
+      color: #00d9ff;
+    }
+
+    /* Submit button */
+    button[type="submit"] {
+      background: linear-gradient(90deg, #00d9ff, #006bbd);
+      border: none;
+      border-radius: 14px;
+      color: #121212;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 16px 0;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 217, 255, 0.6);
+      user-select: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background: linear-gradient(90deg, #006bbd, #00d9ff);
+      outline: none;
+      box-shadow: 0 12px 34px rgba(0, 217, 255, 0.85);
+      transform: translateY(-3px);
+      color: white;
+    }
+
+    /* Response message */
+    .response-msg {
+      margin-top: 24px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      min-height: 28px;
+      user-select: text;
+      color: #00d9ff;
+    }
+
+    /* Contact details below form */
+    .contact-details {
+      margin-top: 48px;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #a0d9ffcc;
+      line-height: 1.6;
+      user-select: none;
+    }
+
+    .contact-details a {
+      color: #00d9ff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-details a:hover,
+    .contact-details a:focus {
+      color: #007ac1;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .contact-container {
+        margin: 20px 12px 50px;
+        padding: 30px 24px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 28px;
+      }
+
+      input,
+      textarea {
+        font-size: 1rem;
+        padding: 14px 14px;
+        min-height: 48px;
+      }
+
+      textarea {
+        min-height: 90px;
+      }
+
+      button[type="submit"] {
+        font-size: 1.1rem;
+        padding: 14px 0;
+      }
+
+      .response-msg {
+        font-size: 1rem;
+      }
+
+      .contact-details {
+        font-size: 0.9rem;
+        margin-top: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="contact-container" role="main" aria-labelledby="contact-title">
+    <h1 id="contact-title">Get in Touch</h1>
+
+    <form id="contactForm" aria-label="Contact form" novalidate>
+      <div class="input-group">
+        <input type="text" id="name" name="name" placeholder="Name" required aria-required="true" />
+        <label for="name">Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Email" required aria-required="true" />
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-group">
+        <textarea id="message" name="message" placeholder="Your message here..." required aria-required="true"></textarea>
+        <label for="message">Message</label>
+      </div>
+
+      <button type="submit" aria-label="Send Message">Send Message</button>
+    </form>
+
+    <div class="response-msg" aria-live="polite" aria-atomic="true" id="responseMsg"></div>
+
+    <div class="contact-details" aria-label="Other contact details">
+      <p>Email: <a href="mailto:pfaizkhan95@gmail.com">pfaizkhan95@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919860575515">+91 98605 75515</a></p>
+      <p>LinkedIn:
+        <a href="https://www.linkedin.com/in/faiz-khan-pathan-0b47602a0/" target="_blank" rel="noopener">linkedin.com/in/Faiz_h_pathan</a>
+      </p>
+      <p>GitHub: <a href="https://github.com/Faizhkhanpathan" target="_blank" rel="noopener">github.com/faizpathan</a></p>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const responseMsg = document.getElementById('responseMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        responseMsg.style.color = '#ff6666';
+        responseMsg.textContent = '❌ Please complete all fields.';
+        return;
+      }
+
+      responseMsg.style.color = '#00d9ff';
+      responseMsg.textContent = 'Sending your message...';
+
+      // Simulate sending message delay (replace with actual backend API call)
+      setTimeout(() => {
+        responseMsg.style.color = '#6ee86e';
+        responseMsg.textContent = '✅ Thanks for reaching out, I will be in touch soon!';
+        form.reset();
+      }, 1800);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout | Faiz H Pathan</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+      text-align: center;
+    }
+    .logout-container {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 12px;
+    }
+    .logout-container h2 {
+      color: #00d9ff;
+    }
+    .logout-container button {
+      background: #00d9ff;
+      border: none;
+      padding: 12px 25px;
+      margin-top: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: white;
+      transition: 0.3s;
+    }
+    .logout-container button:hover {
+      background: #009ec9;
+    }
+  </style>
+</head>
+<body>
+  <div class="logout-container">
+    <h2>You have been logged out ✅</h2>
+    <p>Thank you for visiting!</p>
+    <button onclick="window.location.href='login.html'">Login Again</button>
+    <button onclick="window.location.href='index.html'">Go to Home</button>
+  </div>
+</body>
+</html>

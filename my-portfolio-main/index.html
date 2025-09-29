@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faiz H Pathan - Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    /* RESET & BASE*/
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(12px);
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1100;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+    }
+
+    nav .logo span {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: default;
+    }
+
+    /* NAV LINKS - desktop */
+    nav .links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav .links a {
+      text-decoration: none;
+      color: #ffffffdd;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    nav .links a:hover,
+    nav .links a:focus {
+      background-color: rgba(0, 217, 255, 0.2);
+      color: #00d9ff;
+      outline: none;
+    }
+
+    /* LOGIN/LOGOUT BUTTONS */
+    button.nav-btn {
+      background: #00d9ff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #1e1e1e;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    button.nav-btn:hover,
+    button.nav-btn:focus {
+      background-color: #009ec9;
+      transform: translateY(-2px);
+      outline: none;
+      color: white;
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* HERO SECTION */
+    section.hero {
+      min-height: 100vh;
+      padding: 100px 10% 60px; /* top padding for nav */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    /* LEFT CONTENT */
+    .hero-content {
+      flex: 1 1 320px;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 5vw, 3rem);
+      margin: 0 0 0.4rem;
+      font-weight: 800;
+    }
+
+    .hero-content h1 span {
+      color: #00d9ff;
+    }
+
+    .typing {
+      color: #ffd600;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      font-family: monospace, 'Courier New', Courier, monospace;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    .hero-content p {
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+      color: #e1e1e1cc;
+    }
+
+    /* SOCIAL ICONS */
+    .social-links {
+      margin-bottom: 1.8rem;
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-links a {
+      font-size: 1.8rem;
+      color: #ffffffcc;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      padding: 8px;
+      transition: all 0.25s ease;
+      background-color: transparent;
+      border: 2px solid transparent;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus {
+      color: #00d9ff;
+      transform: scale(1.25);
+      border-color: #00d9ff;
+      outline: none;
+    }
+
+    /* BUTTONS BELOW TEXT */
+    .btns {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btns button {
+      background-color: #00d9ff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 12px;
+      color: #121212;
+      box-shadow: 0 6px 10px rgba(0, 217, 255, 0.4);
+      transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
+      user-select: none;
+    }
+
+    .btns button:hover,
+    .btns button:focus {
+      background-color: #009ec9;
+      box-shadow: 0 8px 18px rgba(0, 158, 201, 0.7);
+      outline: none;
+      transform: translateY(-3px);
+    }
+
+    /* HERO IMAGE RIGHT SIDE */
+    .hero-image {
+      flex: 1 1 320px;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+    img.hero-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      animation: float 3.5s ease-in-out infinite;
+      user-select: none;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* RESPONSIVE STYLE */
+    @media screen and (max-width: 1024px) {
+      section.hero {
+        padding: 100px 5% 60px;
+      }
+
+      .hero-content,
+      .hero-image {
+        max-width: 100%;
+      }
+    }
+
+    /* MOBILE NAVIGATION */
+    @media screen and (max-width: 768px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: rgba(12, 24, 36, 0.95);
+        height: calc(100vh - 60px);
+        width: 210px;
+        flex-direction: column;
+        padding-top: 20px;
+        gap: 25px;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.6);
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+        z-index: 1500;
+      }
+
+      .links.active {
+        transform: translateX(0);
+      }
+
+      nav .links a {
+        font-size: 1.15rem;
+        padding: 8px 12px;
+      }
+
+      button.nav-btn {
+        padding: 10px 22px;
+        font-size: 1.05rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      /* Hamburger animation when active */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* HERO SECTION -> single column */
+      section.hero {
+        flex-direction: column;
+        padding-top: 110px;
+      }
+
+      .hero-content {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .btns {
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .btns button {
+        width: 100%;
+      }
+
+      nav {
+        padding: 15px 3%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo" data-aos="zoom-in" tabindex="0">
+      <span>Faiz H Pathan</span>
+    </div>
+    <div class="links" id="navLinks">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="about.html" tabindex="0">About</a>
+      <a href="skills.html" tabindex="0">Skills</a>
+      <a href="projects.html" tabindex="0">Projects</a>
+      <a href="contact.html" tabindex="0">Contact</a>
+
+      <!-- ✅ Dynamic Login/Logout Buttons -->
+      <button id="loginBtn" class="nav-btn" style="display:none;" aria-label="Login">Login</button>
+      <button id="logoutBtn" class="nav-btn" style="display:none;" aria-label="Logout">Logout</button>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+  <div class="hero-content" data-aos="fade-right">
+    <h1>Hey, I'm <span>Faiz</span></h1>
+    <p class="typing">MERN Developer | Data Science Learner | AI Enthusiast</p>
+    <p>👨‍💻 Dedicated <strong>MERN Developer</strong> &amp; <strong>Data Science Explorer</strong>. I love creating
+      <strong>innovative web solutions</strong> and learning new technologies 🚀.</p>
+    <div class="social-links" data-aos="zoom-in" aria-label="Social media links">
+      <a href="https://github.com/Faizhkhanpathan" aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/faiz-khan-pathan-0b47602a0/" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://x.com/pfaizkhan95" aria-label="X Profile"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <div class="btns">
+      <button onclick="window.location.href='Faiz_Cv.pdf'" aria-label="Download CV">📄 Download CV</button>
+      <button onclick="window.open('Faiz_H_Pathan_Contact1.pdf', '_blank')" aria-label="Contact Me">
+  📩 Contact Me
+</button>
+
+    </div>
+  </div>
+  <div class="hero-image" data-aos="fade-left">
+    <img src="faizimg.jpg" class="hero-img" alt="Faiz Portfolio" loading="lazy" />
+  </div>
+</section>
+
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000
+    });
+  </script>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    function toggleMenu() {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+
+      // Update aria-expanded for accessibility
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    // Also allow keyboard toggle (Enter or Space)
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    // Close menu when clicking any link (mobile)
+    navLinks.querySelectorAll('a, button.nav-btn').forEach(el => {
+      el.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>
+
+  <!-- Firebase Script (placed at the end so elements exist) -->
+  <script type="module">
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6OaDz_zZec0RitJJya28T5PNobzZWy_g",
+      authDomain: "myprotfolio-a70fe.firebaseapp.com",
+      projectId: "myprotfolio-a70fe",
+      storageBucket: "myprotfolio-a70fe.firebasestorage.app",
+      messagingSenderId: "578296764784",
+      appId: "1:578296764784:web:d20ab5e59abe4986e8d7b5",
+      measurementId: "G-FTFTPXXWF1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Show login/logout based on user state
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+      } else {
+        loginBtn.style.display = "inline-block";
+        logoutBtn.style.display = "none";
+        // Redirect if NOT logged in
+        window.location.href = "login.html";
+      }
+    });
+
+    // Logout action
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => window.location.href = "login.html");
+    });
+
+    // Login Button Placeholder (if needed)
+    loginBtn.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+
+</html>

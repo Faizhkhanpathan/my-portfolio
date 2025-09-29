@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Faiz H Pathan</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(12px);
+      padding: 40px 35px 50px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 16px 40px rgb(0 0 0 / 0.45);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .login-container:hover,
+    .login-container:focus-within {
+      box-shadow: 0 20px 48px rgb(0 217 255 / 0.7);
+    }
+
+    .login-container h2 {
+      font-size: 2.2rem;
+      color: #00d9ff;
+      margin-bottom: 30px;
+      font-weight: 900;
+      user-select: none;
+    }
+
+    form#loginForm {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 14px 18px;
+      font-size: 1.15rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255 255 255 / 0.15);
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="email"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #cbd5e1cc;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      background: rgba(255 255 255 / 0.35);
+      box-shadow: 0 0 8px #00d9ffcc;
+      color: #000;
+      font-weight: 600;
+    }
+
+    button[type="submit"] {
+      margin-top: 10px;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      border: none;
+      background: #00d9ff;
+      color: #121212;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 217, 255, 0.55);
+      transition: background-color 0.3s ease, transform 0.22s ease;
+      user-select: none;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background: #009ec9;
+      box-shadow: 0 8px 22px rgba(0, 158, 201, 0.8);
+      outline: none;
+      transform: translateY(-3px);
+      color: white;
+    }
+
+    p {
+      color: #e1e5ebbb;
+      font-size: 1rem;
+      margin: 20px 0 10px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 15px;
+    }
+
+    .social-login a {
+      color: white;
+      font-size: 2rem;
+      border-radius: 50%;
+      padding: 12px;
+      background: rgba(255 255 255 / 0.12);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+    }
+
+    .social-login a:hover,
+    .social-login a:focus {
+      color: #00d9ff;
+      background: rgba(0, 217, 255, 0.15);
+      transform: scale(1.25);
+      box-shadow: 0 8px 25px rgba(0, 217, 255, 0.75);
+      outline: none;
+    }
+
+    .links p {
+      font-size: 0.925rem;
+      margin: 8px 0;
+      user-select: none;
+      font-weight: 500;
+    }
+
+    .links a {
+      color: #ffea00;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.25s ease;
+    }
+
+    .links a:hover,
+    .links a:focus {
+      color: #00d9ff;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 30px 25px 40px;
+      }
+
+      .social-login a {
+        width: 44px;
+        height: 44px;
+        font-size: 1.6rem;
+        padding: 10px;
+      }
+
+      button[type="submit"] {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2 tabindex="0">Welcome Back 👋</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <p>OR</p>
+
+    <!-- ✅ Social Login Icons -->
+    <div class="social-login">
+      <a id="googleLoginBtn" role="button" tabindex="0" aria-label="Login with Google"><i class="fa-brands fa-google"></i></a>
+      <a id="githubLoginBtn" role="button" tabindex="0" aria-label="Login with GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+
+    <div class="links">
+      <p>Don’t have an account? <a href="signup.html">Sign Up</a></p>
+      <p><a href="#">Forgot Password?</a></p>
+    </div>
+  </div>
+
+  <!-- ✅ Firebase Auth Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      GoogleAuthProvider,
+      GithubAuthProvider,
+      signInWithPopup
+    } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    // ✅ Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6OaDz_zZec0RitJJya28T5PNobzZWy_g",
+      authDomain: "myprotfolio-a70fe.firebaseapp.com",
+      projectId: "myprotfolio-a70fe",
+      storageBucket: "myprotfolio-a70fe.appspot.com",
+      messagingSenderId: "578296764784",
+      appId: "1:578296764784:web:d20ab5e59abe4986e8d7b5",
+      measurementId: "G-FTFTPXXWF1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // ✅ Email/Password Login
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("✅ Login successful!");
+          window.location.href = "index.html";
+        })
+        .catch(error => alert("❌ " + error.message));
+    });
+
+    // ✅ Google Login
+    const googleProvider = new GoogleAuthProvider();
+    document.getElementById("googleLoginBtn").addEventListener("click", () => {
+      signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          const user = result.user;
+          alert("✅ Logged in as " + user.displayName);
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("❌ Google Login Failed: " + error.message);
+        });
+    });
+
+    // ✅ GitHub Login
+    const githubProvider = new GithubAuthProvider();
+    document.getElementById("githubLoginBtn").addEventListener("click", () => {
+      signInWithPopup(auth, githubProvider)
+        .then((result) => {
+          const user = result.user;
+          alert("✅ Logged in with GitHub as " + (user.displayName || user.email));
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("❌ GitHub Login Failed: " + error.message);
+        });
+    });
+
+    // ✅ Accessibility: enable Enter/Space keys
+    ["googleLoginBtn", "githubLoginBtn"].forEach(id => {
+      document.getElementById(id).addEventListener("keydown", e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.target.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
