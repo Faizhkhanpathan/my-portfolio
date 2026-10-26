@@ -1,356 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skills | Faiz H Pathan</title>
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Faiz H Pathan's technical skills in full-stack development, AI, databases, cloud, and software engineering.">
+  <title>My Skills | Faiz H Pathan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    nav {
-      background-color: rgba(0, 0, 0, 0.7);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 7%;
-      z-index: 1100;
-      font-weight: 600;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    nav .logo {
-      font-weight: 900;
-      font-size: 1.6rem;
-      color: #00d9ff;
-      user-select: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      white-space: nowrap;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    .nav-links a.active,
-    .nav-links a:hover {
-      background-color: #00d9ff;
-      color: #121212;
-    }
-
-    .logout-btn {
-      background: #00d9ff;
-      color: #121212 !important;
-      border-radius: 12px;
-      padding: 8px 18px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    .logout-btn:hover {
-      background: #009ec9;
-    }
-
-    /* Hamburger icon */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 22px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      background: white;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 60px;
-        right: 0;
-        height: calc(100vh - 60px);
-        width: 220px;
-        background-color: rgba(12, 24, 36, 0.95);
-        flex-direction: column;
-        padding: 30px 15px;
-        gap: 25px;
-        transform: translateX(100%);
-        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.6);
-        border-bottom-left-radius: 16px;
-        border-top-left-radius: 16px;
-        z-index: 1200;
-      }
-
-      .nav-links.active {
-        transform: translateX(0);
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .logout-btn {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        border-radius: 8px;
-      }
-    }
-
-    /* hamburger animation active */
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 100px auto 80px; /* push down to clear fixed navbar */
-      padding: 0 20px;
-      flex-grow: 1;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 32px;
-      color: #00d9ff;
-      user-select: none;
-      text-align: center;
-    }
-
-    /* Skills grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 28px;
-    }
-
-    .skill-category {
-      background: rgba(255 255 255 / 0.05);
-      border-radius: 14px;
-      padding: 26px 22px;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .skill-category:hover {
-      box-shadow: 0 12px 40px #00d9ffaa;
-    }
-
-    .skill-category h2 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-      border-bottom: 2px solid #00d9ff;
-      padding-bottom: 8px;
-      user-select: none;
-    }
-
-    ul.skill-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-
-    ul.skill-list li {
-      margin-bottom: 11px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #b8d8ffcc;
-    }
-
-    /* Skill icon - circle with background */
-    ul.skill-list li i {
-      font-size: 1.3rem;
-      width: 28px;
-      height: 28px;
-      background-color: #00d9ff;
-      color: #121212;
-      border-radius: 50%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      flex-shrink: 0;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px 7%;
-      font-size: 0.9rem;
-      color: #a0aabb;
-      user-select: none;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 480px) {
-      .skill-category h2 {
-        font-size: 1.3rem;
-      }
-
-      ul.skill-list li {
-        font-size: 0.95rem;
-      }
-    }
+    body { font-family: 'Poppins', sans-serif; }
+    .skill-card { background: rgba(13, 17, 23, .88); border: 1px solid rgba(255,255,255,.18); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; backdrop-filter: blur(8px); }
+    .skill-card:hover { transform: translateY(-7px); border-color: #0dcaf0; box-shadow: 0 1rem 2.5rem rgba(13,202,240,.14); }
+    .icon-box { width: 58px; height: 58px; display: grid; place-items: center; flex-shrink: 0; }
+    .skill-tag { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(13,202,240,.38); color: #f8f9fa; background: rgba(13,202,240,.08); border-radius: 999px; padding: .5rem .75rem; font-size: .88rem; transition: background .2s ease, transform .2s ease, border-color .2s ease; }
+    .skill-tag:hover { background: rgba(13,202,240,.2); border-color: #0dcaf0; transform: translateY(-2px); }
+    .skill-tag i { color: #0dcaf0; width: 1rem; text-align: center; }
+    .filter-btn { transition: all .2s ease; }
+    .filter-btn:hover { transform: translateY(-2px); }
+    .form-control::placeholder { color: #adb5bd; }
+    .hero-glow { text-shadow: 0 0 28px rgba(13,202,240,.22); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
+<body class="bg-dark text-white min-vh-100 d-flex flex-column">
 
-<body>
+  <!-- Background video: keep landingpagevideo.mp4 in the same folder as this file -->
+  <video autoplay muted loop playsinline class="position-fixed top-0 start-0 w-100 h-100 object-fit-cover" style="z-index:-2; pointer-events:none;" aria-hidden="true">
+    <source src="landingpagevideo.mp4" type="video/mp4">
+  </video>
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75" style="z-index:-1; pointer-events:none;" aria-hidden="true"></div>
 
   <!-- Navbar -->
-  <nav>
-    <div class="logo">Faiz H Pathan</div>
-
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html" class="active">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="logout.html" class="logout-btn">Logout</a>
-    </div>
-
-    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black bg-opacity-75 fixed-top shadow-lg">
+    <div class="container-fluid px-3 px-lg-5">
+      <a class="navbar-brand text-info fw-bold fs-4" href="index.html"><i class="fa-solid fa-code me-2"></i>Faiz H Pathan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active text-info" aria-current="page" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a href="logout.html" class="btn btn-info text-dark fw-bold px-4 mt-2 mt-lg-0"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <!-- Main container -->
-  <div class="container">
-    <h1>My Skills</h1>
-    <div class="skills-grid">
+  <main class="container flex-grow-1 py-5 mt-5 mb-4">
+    <!-- Hero -->
+    <section class="text-center py-5" id="hero">
+      <span class="badge rounded-pill text-bg-info text-dark px-3 py-2 mb-3"><i class="fa-solid fa-laptop-code me-2"></i>MY TECH STACK</span>
+      <h1 class="display-3 fw-bold mb-3 hero-glow">My <span class="text-info">Skills</span></h1>
+      <p class="lead text-white-50 mx-auto" style="max-width:760px;">Technologies, frameworks, databases, AI tools, and creative skills I use to build practical digital solutions.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+        <span class="badge border border-info text-info rounded-pill p-2">Full-Stack Development</span>
+        <span class="badge border border-info text-info rounded-pill p-2">AI &amp; Generative AI</span>
+        <span class="badge border border-info text-info rounded-pill p-2">Data Science</span>
+      </div>
+    </section>
 
-      <section class="skill-category" aria-labelledby="lang-title">
-        <h2 id="lang-title">Languages</h2>
-        <ul class="skill-list">
-          <li><i class="fa-solid fa-code"></i> Java</li>
-          <li><i class="fa-solid fa-code"></i> Python</li>
-        </ul>
-      </section>
+    <!-- Search -->
+    <section class="mb-4">
+      <div class="row justify-content-center"><div class="col-12 col-lg-8">
+        <label for="skillSearch" class="form-label text-white-50">Search for a skill or technology <span class="small">(press / to focus)</span></label>
+        <div class="input-group input-group-lg shadow">
+          <span class="input-group-text bg-dark text-info border-secondary"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="search" id="skillSearch" class="form-control bg-dark text-white border-secondary" placeholder="Try JavaScript, React, MongoDB..." autocomplete="off">
+          <button class="btn btn-info fw-bold" type="button" id="clearSearch" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p id="resultCount" class="small text-white-50 mt-2 mb-0" aria-live="polite"></p>
+      </div></div>
+    </section>
 
-      <section class="skill-category" aria-labelledby="frameworks-title">
-        <h2 id="frameworks-title">Frameworks & Libraries</h2>
-        <ul class="skill-list">
-          <li><i class="fa-brands fa-react"></i> React (MERN)</li>
-          <li><i class="fa-brands fa-node-js"></i> Node.js / Express</li>
-          <li><i class="fa-brands fa-python"></i> Django</li>
-          <li><i class="fa-solid fa-database"></i> MongoDB / Mongoose</li>
-        </ul>
-      </section>
+    <!-- Filters -->
+    <section class="text-center mb-5">
+      <div class="d-flex flex-wrap justify-content-center gap-2" id="categoryFilters">
+        <button type="button" class="btn btn-info text-dark fw-bold rounded-pill px-3 filter-btn" data-filter="all">All Skills</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="programming">Programming</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="frontend">Frontend</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="backend">Backend</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="database">Databases</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="ai">AI &amp; Data</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="tools">Tools &amp; Cloud</button>
+        <button type="button" class="btn btn-outline-light rounded-pill px-3 filter-btn" data-filter="creative">Creative</button>
+      </div>
+    </section>
 
-      <section class="skill-category" aria-labelledby="data-science-title">
-        <h2 id="data-science-title">Data Science & AI</h2>
-        <ul class="skill-list">
-          <li><i class="fa-solid fa-chart-line"></i> Data Analysis (Pandas, NumPy)</li>
-        </ul>
-      </section>
+    <!-- Skills: every item includes an icon and its text name -->
+    <section class="row g-4 mb-5" id="skillsGrid">
 
-      <section class="skill-category" aria-labelledby="tools-title">
-        <h2 id="tools-title">Tools & Platforms</h2>
-        <ul class="skill-list">
-          <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
-          <li><i class="fa-brands fa-figma"></i> Figma</li>
-          <li><i class="fa-solid fa-cloud"></i> Firebase / AWS</li>
-        </ul>
-      </section>
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="programming" data-name="javascript es6 python java sql">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-code fs-3"></i></div><h2 class="h5 fw-bold mb-0">Programming Languages</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-brands fa-js"></i>JavaScript (ES6+)</span><span class="skill-tag"><i class="fa-brands fa-python"></i>Python</span><span class="skill-tag"><i class="fa-brands fa-java"></i>Java</span><span class="skill-tag"><i class="fa-solid fa-database"></i>SQL</span>
+          </div>
+        </div></article>
+      </div>
 
-      <section class="skill-category" aria-labelledby="video-editing-title">
-        <h2 id="video-editing-title">Video Editing & Thumbnail Designer</h2>
-        <ul class="skill-list">
-          <li><i class="fa-brands fa-adobe"></i> Premiere Pro</li>
-          <li><i class="fa-brands fa-adobe"></i> After Effects</li>
-          <li><i class="fa-brands fa-adobe"></i> Photoshop</li>
-        </ul>
-      </section>
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="frontend" data-name="react react.js next.js html5 css3 bootstrap tailwind css responsive design">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-display fs-3"></i></div><h2 class="h5 fw-bold mb-0">Frontend Development</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-brands fa-react"></i>React.js</span><span class="skill-tag"><i class="fa-solid fa-layer-group"></i>Next.js</span><span class="skill-tag"><i class="fa-brands fa-html5"></i>HTML5</span><span class="skill-tag"><i class="fa-brands fa-css3-alt"></i>CSS3</span><span class="skill-tag"><i class="fa-brands fa-bootstrap"></i>Bootstrap</span><span class="skill-tag"><i class="fa-solid fa-wind"></i>Tailwind CSS</span><span class="skill-tag"><i class="fa-solid fa-mobile-screen"></i>Responsive Design</span>
+          </div>
+        </div></article>
+      </div>
 
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="backend" data-name="node.js express.js fastapi rest api development api integration client server architecture">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-server fs-3"></i></div><h2 class="h5 fw-bold mb-0">Backend Development</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-brands fa-node-js"></i>Node.js</span><span class="skill-tag"><i class="fa-solid fa-server"></i>Express.js</span><span class="skill-tag"><i class="fa-solid fa-bolt"></i>FastAPI</span><span class="skill-tag"><i class="fa-solid fa-plug"></i>REST API Development</span><span class="skill-tag"><i class="fa-solid fa-link"></i>API Integration</span><span class="skill-tag"><i class="fa-solid fa-network-wired"></i>Client–Server Architecture</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="database" data-name="mongodb mongoose mysql postgresql firebase supabase database integration">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-database fs-3"></i></div><h2 class="h5 fw-bold mb-0">Databases</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-leaf"></i>MongoDB</span><span class="skill-tag"><i class="fa-solid fa-diagram-project"></i>Mongoose</span><span class="skill-tag"><i class="fa-solid fa-database"></i>MySQL</span><span class="skill-tag"><i class="fa-solid fa-database"></i>PostgreSQL</span><span class="skill-tag"><i class="fa-solid fa-fire"></i>Firebase</span><span class="skill-tag"><i class="fa-solid fa-bolt"></i>Supabase</span><span class="skill-tag"><i class="fa-solid fa-table"></i>Database Integration</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="ai" data-name="openai api langchain prompt engineering generative ai artificial intelligence ai feature integration">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-brain fs-3"></i></div><h2 class="h5 fw-bold mb-0">AI &amp; Generative AI</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-robot"></i>OpenAI API</span><span class="skill-tag"><i class="fa-solid fa-link"></i>LangChain</span><span class="skill-tag"><i class="fa-solid fa-terminal"></i>Prompt Engineering</span><span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i>Generative AI</span><span class="skill-tag"><i class="fa-solid fa-puzzle-piece"></i>AI Feature Integration</span><span class="skill-tag"><i class="fa-solid fa-gears"></i>AI-Powered Applications</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="ai" data-name="data science pandas numpy data analysis data visualization">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-chart-line fs-3"></i></div><h2 class="h5 fw-bold mb-0">Data Science &amp; Analysis</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-chart-pie"></i>Data Science</span><span class="skill-tag"><i class="fa-brands fa-python"></i>Python for Data Analysis</span><span class="skill-tag"><i class="fa-solid fa-table"></i>Pandas</span><span class="skill-tag"><i class="fa-solid fa-calculator"></i>NumPy</span><span class="skill-tag"><i class="fa-solid fa-chart-column"></i>Data Visualization</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="tools" data-name="git github visual studio code vscode cursor ai github copilot postman">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-screwdriver-wrench fs-3"></i></div><h2 class="h5 fw-bold mb-0">Developer Tools</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-brands fa-git-alt"></i>Git</span><span class="skill-tag"><i class="fa-brands fa-github"></i>GitHub</span><span class="skill-tag"><i class="fa-solid fa-code"></i>Visual Studio Code</span><span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i>Cursor AI</span><span class="skill-tag"><i class="fa-solid fa-robot"></i>GitHub Copilot</span><span class="skill-tag"><i class="fa-solid fa-paper-plane"></i>Postman</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="tools" data-name="firebase aws fundamentals cloud deployment ci cd vercel render">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-cloud-arrow-up fs-3"></i></div><h2 class="h5 fw-bold mb-0">Cloud &amp; Deployment</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-fire"></i>Firebase</span><span class="skill-tag"><i class="fa-brands fa-aws"></i>AWS Fundamentals</span><span class="skill-tag"><i class="fa-solid fa-cloud"></i>Cloud Fundamentals</span><span class="skill-tag"><i class="fa-solid fa-rocket"></i>Application Deployment</span><span class="skill-tag"><i class="fa-solid fa-arrows-rotate"></i>CI/CD Fundamentals</span><span class="skill-tag"><i class="fa-solid fa-globe"></i>Vercel &amp; Render</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="programming" data-name="data structures algorithms dsa object oriented programming oop software engineering">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-graduation-cap fs-3"></i></div><h2 class="h5 fw-bold mb-0">Core Computer Science</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-diagram-project"></i>Data Structures</span><span class="skill-tag"><i class="fa-solid fa-gears"></i>Algorithms</span><span class="skill-tag"><i class="fa-solid fa-cubes"></i>Object-Oriented Programming (OOP)</span><span class="skill-tag"><i class="fa-solid fa-book"></i>Software Engineering Fundamentals</span>
+          </div>
+        </div></article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4 skill-item" data-category="creative" data-name="adobe premiere pro after effects photoshop video editing thumbnail design graphic design">
+        <article class="card skill-card h-100 rounded-4 shadow-lg"><div class="card-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-4"><div class="icon-box rounded-3 bg-info bg-opacity-25 text-info"><i class="fa-solid fa-photo-film fs-3"></i></div><h2 class="h5 fw-bold mb-0">Creative Skills</h2></div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="skill-tag"><i class="fa-solid fa-film"></i>Adobe Premiere Pro</span><span class="skill-tag"><i class="fa-solid fa-clapperboard"></i>Adobe After Effects</span><span class="skill-tag"><i class="fa-solid fa-image"></i>Adobe Photoshop</span><span class="skill-tag"><i class="fa-solid fa-scissors"></i>Video Editing</span><span class="skill-tag"><i class="fa-solid fa-panorama"></i>Thumbnail Design</span>
+          </div>
+        </div></article>
+      </div>
+    </section>
+
+    <!-- No results -->
+    <section id="noResults" class="text-center py-5 d-none">
+      <i class="fa-solid fa-magnifying-glass text-info display-3 mb-3"></i>
+      <h2 class="h4 fw-bold">No skills found</h2>
+      <p class="text-white-50">Try another skill name or category.</p>
+      <button type="button" class="btn btn-info text-dark fw-bold" id="resetFilters">Show All Skills</button>
+    </section>
+
+    <!-- Call to action -->
+    <section class="text-center bg-black bg-opacity-50 border border-secondary rounded-4 p-4 p-md-5 shadow-lg">
+      <i class="fa-solid fa-laptop-code text-info display-4 mb-3"></i>
+      <h2 class="fw-bold">Let's Build Something Great</h2>
+      <p class="text-white-50 mx-auto mb-4" style="max-width:650px;">Explore my projects or contact me to discuss software development, full-stack applications, and AI opportunities.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="projects.html" class="btn btn-info text-dark fw-bold px-4"><i class="fa-solid fa-folder-open me-2"></i>View Projects</a>
+        <a href="contact.html" class="btn btn-outline-light fw-bold px-4"><i class="fa-solid fa-envelope me-2"></i>Contact Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black bg-opacity-75 text-center text-white-50 py-4 mt-auto">
+    <div class="container">
+      <p class="mb-1">&copy; <span id="currentYear"></span> Faiz H Pathan. All rights reserved.</p>
+      <p class="small mb-0">Full-Stack Developer | AI &amp; Data Science Enthusiast</p>
     </div>
-  </div>
-
-  <footer>
-    © 2025 Faiz H Pathan | MERN Developer & Data Science Learner
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Navbar hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    function toggleMenu() {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('active');
+    const skillItems = [...document.querySelectorAll(".skill-item")];
+    const searchInput = document.getElementById("skillSearch");
+    const clearSearch = document.getElementById("clearSearch");
+    const resultCount = document.getElementById("resultCount");
+    const noResults = document.getElementById("noResults");
+    const filterButtons = [...document.querySelectorAll(".filter-btn")];
+    let activeCategory = "all";
+
+    function filterSkills() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      skillItems.forEach((item, index) => {
+        const categoryMatches = activeCategory === "all" || item.dataset.category === activeCategory;
+        const searchableText = ((item.dataset.name || "") + " " + item.textContent).toLowerCase();
+        const visible = categoryMatches && searchableText.includes(query);
+        item.classList.toggle("d-none", !visible);
+
+        if (visible) {
+          visibleCount++;
+          item.animate(
+            [{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 260, delay: Math.min(index * 20, 120), easing: "ease-out" }
+          );
+        }
+      });
+
+      resultCount.textContent = `Showing ${visibleCount} skill ${visibleCount === 1 ? "category" : "categories"}.`;
+      noResults.classList.toggle("d-none", visibleCount !== 0);
     }
 
-    hamburger.addEventListener('click', toggleMenu);
+    function updateFilterButtons(selectedButton) {
+      filterButtons.forEach(button => {
+        const selected = button === selectedButton;
+        button.classList.toggle("btn-info", selected);
+        button.classList.toggle("text-dark", selected);
+        button.classList.toggle("fw-bold", selected);
+        button.classList.toggle("btn-outline-light", !selected);
+      });
+    }
 
-    hamburger.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
+    searchInput.addEventListener("input", filterSkills);
+
+    clearSearch.addEventListener("click", () => {
+      searchInput.value = "";
+      filterSkills();
+      searchInput.focus();
+    });
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.filter;
+        updateFilterButtons(button);
+        filterSkills();
+      });
+    });
+
+    document.getElementById("resetFilters").addEventListener("click", () => {
+      activeCategory = "all";
+      searchInput.value = "";
+      updateFilterButtons(filterButtons[0]);
+      filterSkills();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+        event.preventDefault();
+        searchInput.focus();
+      }
+      if (event.key === "Escape" && document.activeElement === searchInput) {
+        searchInput.value = "";
+        filterSkills();
       }
     });
 
-    // Close mobile menu when clicking any nav link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          toggleMenu();
-        }
-      });
+    document.querySelectorAll(".skill-card, #hero, #categoryFilters").forEach((element, index) => {
+      element.animate(
+        [{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "translateY(0)" }],
+        { duration: 550, delay: Math.min(index * 45, 450), easing: "ease-out", fill: "both" }
+      );
     });
+
+    filterSkills();
   </script>
-
 </body>
-
 </html>
